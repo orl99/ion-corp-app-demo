@@ -1,0 +1,85 @@
+<div class="bmasc-pedimentos-general-table">
+    <mat-table [dataSource]="dataSource" *ngIf="!!dataSource">
+        <!-- User name Definition -->
+        <ng-container matColumnDef="unida_negocio">
+            <mat-header-cell *matHeaderCellDef> UNIDAD DE NEGOCIO </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.label}} </mat-cell>
+        </ng-container>
+
+        <!-- Age Definition -->
+        <ng-container matColumnDef="ENERO">
+            <mat-header-cell *matHeaderCellDef> ENE </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[0]}} </mat-cell>
+        </ng-container>
+
+        <!-- Title Definition -->
+        <ng-container matColumnDef="FEBRERO">
+            <mat-header-cell *matHeaderCellDef> FEB </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[1]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="MARZO">
+            <mat-header-cell *matHeaderCellDef> MAR </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[2]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="ABRIL">
+            <mat-header-cell *matHeaderCellDef> ABR </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[3]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="MAYO">
+            <mat-header-cell *matHeaderCellDef> MAY </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[4]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="JUNIO">
+            <mat-header-cell *matHeaderCellDef> JUN </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[5]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="JULIO">
+            <mat-header-cell *matHeaderCellDef> JUL </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[6]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="AGOSTO">
+            <mat-header-cell *matHeaderCellDef> AGO </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[7]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="SEPTIEMBRE">
+            <mat-header-cell *matHeaderCellDef> SEP </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[8]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="OCTUBRE">
+            <mat-header-cell *matHeaderCellDef> OCT </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[9]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="NOVIEMBRE">
+            <mat-header-cell *matHeaderCellDef> NOV </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[10]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="DICIEMBRE">
+            <mat-header-cell *matHeaderCellDef> DIC </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.data[11]}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="TOTALES">
+            <mat-header-cell *matHeaderCellDef> TOTALES </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.total}} </mat-cell>
+        </ng-container>
+        <!-- Title Definition -->
+        <ng-container matColumnDef="PARTICIPACION">
+            <mat-header-cell *matHeaderCellDef> PARTICIPACION </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.particpation}} </mat-cell>
+        </ng-container>
+
+        <!-- Header and Row Declarations -->
+        <mat-header-row *matHeaderRowDef="tableColums"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: tableColums"></mat-row>
+    </mat-table>
+</div>

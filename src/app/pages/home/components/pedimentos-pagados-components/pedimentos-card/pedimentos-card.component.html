@@ -1,0 +1,101 @@
+<div class="pedimentos-component-container">
+    <div class="pedimentos-component-header-options">
+        <h2 style="padding-left: 8px;">Pedimentos</h2>
+        <div class="pedimentos-component-chips-container">
+            <ion-chip [ngClass]="{'bmasc-hober-chip': infoChartType == '0'}" (click)="changeChartInfoType('0')">
+                General
+            </ion-chip>
+            <ion-chip [ngClass]="{'bmasc-hober-chip': infoChartType == '1'}" (click)="changeChartInfoType('1')">
+                Periodos
+            </ion-chip>
+        </div>
+    </div>
+    <div class="pedimentos-component-cards-container">
+        <div [ngSwitch]="infoChartType">
+            <!-- General Data -->
+            <ng-container *ngSwitchCase="0">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>
+                            Pedimentos - General
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content *ngIf="chartGeneralData.length">
+                        <div class="pedimentos-card-options-container">
+                        </div>
+                        <div class="pedimentos-card-content-container">
+                            <mat-tab-group class="bmasc-tab-container">
+                                <mat-tab label="GRAFICA">
+                                    <home-pedimentos-general-chart InChartType='line' [InLabels]='chartLabelsData' [InChartData]='chartGeneralData'></home-pedimentos-general-chart>
+                                </mat-tab>
+                                <mat-tab label="TABLA">
+                                    <home-pedimentos-general-table [InDataTable]="chartGeneralData"></home-pedimentos-general-table>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ng-container>
+            <!-- Mensual Data -->
+            <ng-container *ngSwitchCase="1">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>
+                            Pedimentos - Periodos
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <form name="ppByDateForms" (ngSubmit)="getPPByDate(ppByDateForms.value)" #ppByDateForms="ngForm">
+                            <div class="cruces-card-options-container">
+                                <div class="cruces-selects">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Seleccione año</mat-label>
+                                        <mat-select required name="selectedYear" [(ngModel)]="selectedYear">
+                                            <mat-option *ngFor="let year of selectYears" [value]="year">
+                                                {{year}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Seleccione mes</mat-label>
+                                        <mat-select required name="selectedMonths" [(ngModel)]="selectedMonths">
+                                            <mat-option *ngFor="let month of selectMonths" [value]="month.monthNum">
+                                                {{month.month}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <ion-button [disabled]="!selectedMonths || !selectedYear" type="submit">Consultar</ion-button>
+                            </div>
+                        </form>
+                        <!-- Form options -->
+                        <div class="pedimentos-card-content-container">
+                            <ng-container>
+                                <div [ngSwitch]="chartDataPerDateIsAvailable">
+                                    <div *ngSwitchCase="true">
+                                        <div *ngIf="chartDataPerDateIsAvailable">
+                                            <home-pedimentos-chart [(InChartData)]="chartDataPerDate" InChartType="bar"></home-pedimentos-chart>
+                                        </div>
+                                    </div>
+                                    <div *ngSwitchCase="false">
+                                        <div class="cruces-no-chart-info-container ion-padding">
+                                            <mat-icon class="no-chart-icon" style="font-size: 6em;">addchart</mat-icon>
+                                            <p> Por favor seleccione en los campos año y mes para consultar la información </p>
+                                        </div>
+                                    </div>
+                                    <div *ngSwitchDefault>
+                                        <div class="cruces-no-chart-info-container ion-padding">
+                                            <mat-icon class="no-chart-icon" style="font-size: 6em;">addchart</mat-icon>
+                                            <p> Por favor seleccione en los campos año y mes para consultar la información </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ng-container>
+        </div>
+
+    </div>
+</div>

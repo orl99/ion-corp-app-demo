@@ -1,0 +1,13 @@
+{
+  "appId": "bmasc.corp.app",
+  "appName": "KPIS Direccion",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

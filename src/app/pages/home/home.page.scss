@@ -1,0 +1,8 @@
+@import 'src/theme/components/welcome-card.styles.scss';
+.home-page-content-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 20px;
+    padding: 16px 8px;
+}

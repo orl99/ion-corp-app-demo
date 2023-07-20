@@ -1,0 +1,104 @@
+<div class="cruces-component-container">
+    <div class="cruces-component-header-options">
+        <h1 style="padding-left: 8px;">Cruces</h1>
+        <div class="cruces-component-chips-container">
+            <ion-chip [ngClass]="{'bmasc-hober-chip': infoChartType == '0'}" (click)="changeChartInfoType('0')">
+                General
+            </ion-chip>
+            <ion-chip [ngClass]="{'bmasc-hober-chip': infoChartType == '1'}" (click)="changeChartInfoType('1')">
+                Periodos
+            </ion-chip>
+        </div>
+    </div>
+    <div class="cruces-component-cards-container">
+        <div [ngSwitch]="infoChartType">
+            <!-- General Data -->
+            <ng-container *ngSwitchCase="0">
+                <ion-card >
+                    <ion-card-header>
+                        <ion-card-title>
+                            Cruces - General
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content *ngIf="chartGeneralData">
+                        <div class="cruces-card-options-container">
+                        </div>
+                        <div class="cruces-card-content-container">
+                            <mat-tab-group class="bmasc-tab-container">
+                                <mat-tab label="GRAFICA">
+                                    <div class="bmasc-chart-table">
+                                        <home-cruces-general-chart InChartType='line' [InLabels]='chartLabelsData' [InChartData]='chartGeneralData'></home-cruces-general-chart>
+                                    </div>
+                                </mat-tab>
+                                <mat-tab label="TABLA">
+                                    <div class="bmasc-table-container">
+                                        <home-cruces-general-table [InDataTable]="chartGeneralData"></home-cruces-general-table>
+                                    </div>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ng-container>
+            <!-- Mensual Data -->
+            <ng-container *ngSwitchCase="1">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>
+                            Cruces - Periodos
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <!-- Form options -->
+                        <form name="cruceByDateForms" (ngSubmit)="getCrucesByDate(cruceByDateForms.value)" #cruceByDateForms="ngForm">
+                            <div class="cruces-card-options-container">
+                                <div class="cruces-selects">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Seleccione año</mat-label>
+                                        <mat-select required name="selectedYear" [(ngModel)]="selectedYear">
+                                            <mat-option *ngFor="let year of selectYears" [value]="year">
+                                                {{year}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Seleccione mes</mat-label>
+                                        <mat-select required name="selectedMonths" [(ngModel)]="selectedMonths">
+                                            <mat-option *ngFor="let month of selectMonths" [value]="month.monthNum">
+                                                {{month.month}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <ion-button [disabled]="!selectedMonths || !selectedYear" type="submit">Consultar</ion-button>
+                            </div>
+                        </form>
+                        <!-- Form options -->
+                        <div class="cruces-card-content-container">
+                            <ng-container [ngSwitch]="chartDataPerDateIsAvailable">
+                                <div *ngSwitchCase="true">
+                                    <div *ngIf="chartDataPerDateIsAvailable">
+                                        <home-cruces-chart [(InChartData)]="chartDataPerDate" InChartType="bar"></home-cruces-chart>
+                                    </div>
+                                </div>
+                                <div *ngSwitchCase="false">
+                                    <div class="cruces-no-chart-info-container ion-padding">
+                                        <mat-icon class="no-chart-icon" style="font-size: 6em;">addchart</mat-icon>
+                                        <p> Por favor seleccione en los campos año y mes para consultar la información </p>
+                                    </div>
+                                </div>
+                                <div *ngSwitchDefault>
+                                    <div class="cruces-no-chart-info-container ion-padding">
+                                        <mat-icon class="no-chart-icon" style="font-size: 6em;">addchart</mat-icon>
+                                        <p> Por favor seleccione en los campos año y mes para consultar la información </p>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ng-container>
+        </div>
+
+    </div>
+</div>

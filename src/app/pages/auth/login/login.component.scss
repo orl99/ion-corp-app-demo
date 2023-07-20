@@ -1,0 +1,51 @@
+@import 'src/theme/mediaQueries.scss';
+.login-main-container {
+    background-image: url('/assets/img/banner1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-crendentials-box {
+    max-width: 80%;
+    height: auto;
+    @include md {
+        max-width: 450px;
+    }
+    @include lg {
+        max-width: 550px;
+    }
+}
+
+.login-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+mat-card {
+    // background: #121212;
+    padding: 32px 16px;
+     ::ng-deep {
+        background: rgba(18, 18, 18, .7) !important
+    }
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-alerts-container {
+    background-color: var(--ion-color-primary-selected);
+    margin-bottom: 10px;
+}

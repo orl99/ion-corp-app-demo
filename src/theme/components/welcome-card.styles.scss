@@ -1,0 +1,16 @@
+// This styles goes with ion-card
+.bmasc-welcome-card-container {
+    margin: 0;
+    h2 {
+        margin: 0;
+        font-size: 1.7em;
+        color: #FFFFFF;
+    }
+    p {
+        color: rgba($color: #FFFFFF, $alpha: .5);
+    }
+}
+
+.mat-card-box-shodow {
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}

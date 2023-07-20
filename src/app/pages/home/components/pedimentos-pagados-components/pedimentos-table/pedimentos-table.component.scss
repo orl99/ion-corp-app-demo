@@ -1,0 +1,20 @@
+@import 'src/theme/mediaQueries.scss';
+.bmasc-pedimentos-general-table {
+    max-width: 100px;
+    mat-table {
+        width: fit-content;
+        overflow: auto;
+    }
+    @include lg {
+        mat-table {
+            width: 100%;
+            overflow: auto;
+        }
+    }
+}
+
+mat-cell:first-of-type,
+mat-header-cell:first-of-type,
+mat-footer-cell:first-of-type {
+    width: 900px;
+}

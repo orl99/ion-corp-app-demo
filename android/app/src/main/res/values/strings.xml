@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">KPIS Direccion</string>
+    <string name="title_activity_main">KPIS Direccion</string>
+    <string name="package_name">bmasc.corp.app</string>
+    <string name="custom_url_scheme">bmasc.corp.app</string>
+</resources>

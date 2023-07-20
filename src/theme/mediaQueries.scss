@@ -1,0 +1,61 @@
+  // $breakpoints: (
+  //   s: 0, // Todos los tamaños,
+  //   sm: 540px,
+  //   m: 768px, // ~ 768px
+  //   lg: 960px, // ~ 960px
+  //   xl: 1200 // ~1200
+  // );
+  $breakpoint-sm: 540px;
+  $breakpoint-xsm: 390px;
+  $breakpoint-s: 0;
+  $breakpoint-md: 768px;
+  $breakpoint-lg: 960px;
+  $breakpoint-xl: 1200px;
+  //@import './breakPoints';
+  @mixin sm {
+      @media screen and (min-width: $breakpoint-sm) {
+          @content;
+      }
+  }
+  
+  @mixin xsm {
+      @media screen and (max-width: $breakpoint-xsm) {
+          @content;
+      }
+  }
+  
+  @mixin md {
+      @media screen and (min-width: $breakpoint-md) {
+          @content;
+      }
+  }
+  
+  @mixin lg {
+      @media screen and (min-width: $breakpoint-lg) {
+          @content;
+      }
+  }
+  
+  @mixin xl {
+      @media screen and (min-width: $breakpoint-xl) {
+          @content;
+      }
+  }
+  
+  @mixin tablet-ipad-lg {
+      @media (min-width: 1025px) and (max-width: 1280px) and (min-height: 1000px) {
+          //CSS
+          @content;
+      }
+  }
+  
+  @mixin tablet-ipad-s {
+      @media (min-width: 768px) and (max-width: 1024px) and (min-height: 1000px) {
+          //CSS
+          @content;
+      }
+      /*
+      ##Device = Tablets, Ipads (portrait)
+      ##Screen = B/w 768px to 1024px
+      */
+  }

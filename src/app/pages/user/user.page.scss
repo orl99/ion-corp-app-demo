@@ -1,0 +1,39 @@
+.user-profile-img {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    ion-img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.user-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.user-profile-conatiner{
+    position: absolute;
+    top: -100px;
+}
+
+.user-information-container {
+    margin-top: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+        font-size: 1.2em;
+        max-width: 230px;
+        word-break: normal;
+        text-align: center;
+        color: var(--ion-color-step-650);
+    }
+}
+
+.user-banner-container {
+    width: 100vw;
+}

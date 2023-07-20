@@ -1,0 +1,7 @@
+{
+  "name": "KPIS Direccion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
